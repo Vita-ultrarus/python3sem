@@ -1,10 +1,10 @@
-from itertools import combinations
+from itertools import permutations
 
-def get_combinations(s, n):
-    for i in range(1,n):
-        combinations(s,i)
+def get_permutations(s, n):
+    a=sorted(list(permutations(s,n)))
+    return a
 
 
-print(get_combinations("cat", 2))
+print(*get_permutations("cat", 2))
 
 
