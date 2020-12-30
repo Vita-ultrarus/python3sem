@@ -20,9 +20,9 @@ class TextLoader:
         zn = ['/', '.', ';', ':', '(', ')', ',', '?', '!']
         for i in self.files:
             with open(self.adr + '\\' + i, 'rt') as j:
-                j = j.lower()
+                j = str(j)
                 for t in range(len(zn)):
-                    j = j.replace(zn[t], ' ')
+                    j = j.lower().replace(zn[t], ' ')
                     self.normal = j
         raise StopIteration()
 
