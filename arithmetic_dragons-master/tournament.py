@@ -30,7 +30,7 @@ def game_tournament(hero, dragon_list):
         while dragon.is_alive() and hero.is_alive():
 
             if ans == 'да':
-                use_artifact(want, hero)
+                Artifact().use_artifact(want, hero)
 
             print('Вопрос:', dragon.question())
             answer = annoying_input_int('Ответ:')
@@ -45,7 +45,7 @@ def game_tournament(hero, dragon_list):
             break
         hero.finish_health = hero._health - health_start
         print('Дракон', dragon._color, 'повержен!\n')
-        artifact = monster_gives_artifact(hero)
+        artifact = Enemy().monster_gives_artifact(hero)
         if artifact:
             print('Поздравляем, вы получили артефакт: ', artifact, '!')
         hero._experience+=10
@@ -74,11 +74,11 @@ def game_trollnament(hero, troll_list):
             want = input()
 
         while troll.is_alive() and hero.is_alive():
+            if ans == 'да':
+                Artifact().use_artifact(want, hero)
+
             print('Вопрос:', troll.question())
             answer = input('Ответ:')
-
-            if ans == 'да':
-                use_artifact(want,hero)
 
             if troll.check_answer(answer):
                 hero.attack(troll)
@@ -90,7 +90,7 @@ def game_trollnament(hero, troll_list):
             break
         hero.finish_health = hero._health - health_start
         print('Тролль', troll._color, 'затроллен!\n')
-        artifact = monster_gives_artifact(hero)
+        artifact = Enemy().monster_gives_artifact(hero)
         if artifact:
             print('Поздравляем, вы получили артефакт: ', artifact, '!' )
         hero._experience+=20

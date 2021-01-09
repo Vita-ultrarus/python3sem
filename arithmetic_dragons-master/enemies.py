@@ -1,11 +1,20 @@
 # coding: utf-8
 # license: GPLv3
 from gameunit import *
+from artifacts import *
 from random import randint, choice
 
 
 class Enemy(Attacker):
-    pass
+
+    def monster_gives_artifact(self, hero):
+        artifact = None
+        #a = randint(1, 10)
+        a=4
+        if (3 <= a and a <= 6):
+            artifact = choice(artifact_types)
+            hero._artifacts.append(artifact)
+        return artifact
 
 
 def generate_random_dragon():
@@ -158,3 +167,4 @@ class PinkTroll(Troll):
 
 dragon_types = [GreenDragon, RedDragon, BlackDragon]
 troll_types = [GrayTroll, BlueTroll, PinkTroll]
+artifact_types = [apple, marker, shield]
